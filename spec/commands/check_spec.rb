@@ -345,4 +345,22 @@ describe "bundle check" do
       end
     end
   end
+
+  context "after package" do
+    before do
+      gemfile <<-G
+        source "file://#{gem_repo1}"
+        gem "rails"
+      G
+      bundle "package"
+    end
+
+    it "should return error when packaged file is deleted" do
+      FileUtils.rm_rf(bundled_app("vendor/cache"))
+      bundle "check"
+      expect(out).not_to include("The Gemfile's dependencies are satisfied")
+      expect(out).to match(/The following gems are missing/)
+      expect(out).to include("* rails")
+    end
+  end
 end
