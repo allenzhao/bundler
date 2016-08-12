@@ -28,7 +28,7 @@ addons:
       secure: "TrzIv116JLGUxm6PAUskCYrv8KTDguncKROVwbnjVPKTGDAgoDderd8JUdDEXrKoZ9qGLD2TPYKExt9/QDl71E+qHdWnVqWv4HKCUk2P9z/VLKzHuggOUBkCXiJUhjywUieCJhI3N92bfq2EjSBbu2/OFHqWOjLQ+QCooTEBjv8="
 
 rvm:
-  - rbx-3.51
+  - rbx-2
 
 # Rubygems versions MUST be available as rake tasks
 # see Rakefile:125 for the list of possible RGV values
@@ -40,5 +40,5 @@ matrix:
   include:
     # Ruby 2.2, Rubygems 2.4.5 and up (included by RGV above)
     # Ruby 2.1, Rubygems 2.2.2 and up
-    - rvm: rbx-3.51
+    - rvm: rbx-2
       env: RGV=v2.6.4
